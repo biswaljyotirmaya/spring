@@ -1,0 +1,5 @@
+package com.jbcom.jb.sbeans;
+
+public interface ICricketBat {
+	public int socreRun();
+}

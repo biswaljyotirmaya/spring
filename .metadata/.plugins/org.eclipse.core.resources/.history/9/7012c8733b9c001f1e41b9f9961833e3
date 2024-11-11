@@ -1,0 +1,21 @@
+package com.jb.sbeans;
+
+public class DiselEngine implements IEngine {
+
+	public DiselEngine() {
+		System.out.println("Petrol engine created!");
+	}
+
+	@Override
+	public String startEnginne() {
+		String start = "Petrol engine stated!";
+		return start;
+	}
+
+	@Override
+	public String stopEngine() {
+		String stop = "Petrol engine stopped!";
+		return stop;
+	}
+
+}

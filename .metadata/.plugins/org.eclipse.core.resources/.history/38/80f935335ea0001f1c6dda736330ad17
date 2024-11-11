@@ -1,0 +1,5 @@
+package com.jb.model;
+
+public class Employee {
+
+}

@@ -1,0 +1,5 @@
+package com.jb.service;
+
+public interface IEmployeeService {
+
+}

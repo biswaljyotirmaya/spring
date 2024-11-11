@@ -1,0 +1,39 @@
+package com.jb;
+
+import java.io.Closeable;
+import java.util.List;
+import java.util.Scanner;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.jb.model.Employee;
+import com.jb.service.EmployeeServiceImpl;
+
+@SpringBootApplication
+public class BootProj04Application {
+
+	public static void main(String[] args) {
+		ApplicationContext ctx = SpringApplication.run(BootProj04Application.class, args);
+		EmployeeServiceImpl empserv = ctx.getBean("empService", EmployeeServiceImpl.class);
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter desg1:");
+		String desg1 = sc.nextLine();
+		System.out.println("Enter desg2:");
+		String desg2 = sc.nextLine();
+		System.out.println("Enter desg3:");
+		String desg3 = sc.nextLine();
+
+		try {
+			List<Employee> list = empserv.fetchEmployeeByDesgn(desg1, desg2, desg3);
+			list.forEach(emp -> {
+				System.out.println(emp);
+			});
+		} catch (Exception e) {
+			System.out.println("Internal error: " + e);
+		}
+	}
+
+}

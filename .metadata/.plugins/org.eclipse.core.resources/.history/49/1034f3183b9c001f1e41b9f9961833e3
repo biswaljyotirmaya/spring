@@ -1,0 +1,17 @@
+package com.jb.sbeans;
+
+public class PetrolEngine implements IEngine {
+
+	@Override
+	public String startEnginne() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String stopEngine() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
