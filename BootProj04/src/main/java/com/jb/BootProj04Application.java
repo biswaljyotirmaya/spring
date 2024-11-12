@@ -29,7 +29,7 @@ public class BootProj04Application {
 		try {
 			List<Employee> list = empserv.fetchEmployeeByDesgn(desg1, desg2, desg3);
 			list.forEach(emp -> {
-				System.out.println(emp);
+				System.out.println("\n"+emp);
 			});
 		} catch (Exception e) {
 			System.out.println("Internal error: " + e);
