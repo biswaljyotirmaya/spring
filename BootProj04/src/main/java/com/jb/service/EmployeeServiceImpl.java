@@ -32,4 +32,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
 		});
 		return list;
 	}
+
+	@Override
+	public String insertEmployee(Employee emp) throws Exception {
+		int rowCount = empdao.insertEmployee(emp);
+		return rowCount == 0 ? "Employee not registered!" : "Employee registered successfully!";
+	}
 }

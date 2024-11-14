@@ -1,6 +1,7 @@
 package com.jb.DAO;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ import com.jb.model.Employee;
 @Repository("empDAO")
 public class EmployeeDAOimpl implements IEmployeeDAO {
 	private static final String GET_EMPS_QUERY = "SELECT EMPNO, ENAME, JOB, SAL, DEPTNO FROM EMP WHERE JOB IN(?,?,?) ORDER BY JOB";
-
+	private static final String INSERT_NEW_EMP = "INSERT INTO EMP (EMPNO,ENAME,JOB,SAL,DEPTNO) VALUES(empno_seq.nextval,?,?,?,?)";
 	@Autowired
 	private DataSource ds;
 
@@ -47,5 +48,18 @@ public class EmployeeDAOimpl implements IEmployeeDAO {
 			throw e;
 		}
 		return list;
+	}
+
+	@Override
+	public int insertEmployee(Employee emp) throws Exception {
+		int rowCount = 0;
+		try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(INSERT_NEW_EMP);) {
+			ps.setString(1, emp.getEname());
+			ps.setString(2, emp.getJob());
+			ps.setDouble(3, emp.getSalary());
+			ps.setInt(4, emp.getDeptno());
+			rowCount = ps.executeUpdate();
+		}
+		return rowCount;
 	}
 }
