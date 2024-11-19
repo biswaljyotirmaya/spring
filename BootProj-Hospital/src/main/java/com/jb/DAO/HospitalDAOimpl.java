@@ -1,6 +1,7 @@
 package com.jb.DAO;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +18,7 @@ import com.jb.model.Hospital;
 @Repository("hospDAO")
 public class HospitalDAOimpl implements IHospitalDAO {
 	private static final String GET_HOSP_QUERY = "SELECT HID, HNAME, LOCATION, CONTACT, BEDCAPACITY, ESTABLISHED FROM HOSPITAL WHERE LOCATION IN(?,?,?) ORDER BY LOCATION";
+	private static final String INSERT_HOSP_QUERY = "INSERT INTO HOSPITAL VALUES(hid_seq.NEXTVAL,?,?,?,?,?)";
 
 	@Autowired
 	private DataSource ds;
@@ -46,5 +48,23 @@ public class HospitalDAOimpl implements IHospitalDAO {
 			throw e;
 		}
 		return list;
+	}
+
+	@Override
+	public int insertHospital(Hospital hosp) throws Exception {
+		int rowCount = 0;
+		try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(INSERT_HOSP_QUERY)) {
+			ps.setString(1, hosp.getHName());
+			ps.setString(2, hosp.getLocation());
+			ps.setString(3, hosp.getContact());
+			ps.setInt(4, hosp.getBedCapacity());
+			ps.setString(5, hosp.getEstablished());
+			rowCount = ps.executeUpdate();
+		} catch (SQLException se) {
+			throw se;
+		} catch (Exception e) {
+			throw e;
+		}
+		return rowCount;
 	}
 }

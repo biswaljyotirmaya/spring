@@ -27,4 +27,10 @@ public class HospitalServiceImpl implements IHospitalService {
 		return list;
 	}
 
+	@Override
+	public String insertHospitalDetails(Hospital hosp) throws Exception {
+		int rowUpdated = hospdao.insertHospital(hosp);
+		return rowUpdated > 0 ? "Hospital details inserted successfully!" : "Failed to insert hospital details!";
+	}
+
 }
