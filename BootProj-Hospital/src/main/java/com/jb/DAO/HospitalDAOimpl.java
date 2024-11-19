@@ -25,6 +25,7 @@ public class HospitalDAOimpl implements IHospitalDAO {
 
 	@Override
 	public List<Hospital> getHospital(String loc1, String loc2, String loc3) throws Exception {
+		System.out.println(ds);
 		List<Hospital> list = new ArrayList<Hospital>();
 		try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(GET_HOSP_QUERY)) {
 			ps.setString(1, loc1);

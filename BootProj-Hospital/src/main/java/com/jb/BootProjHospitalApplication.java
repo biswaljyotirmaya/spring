@@ -34,31 +34,31 @@ public class BootProjHospitalApplication {
 			System.out.println("Internal error: " + e);
 		}
 
-		System.out.println("--------------------------Hospital Registration---------------------------");
-		System.out.println("Enter hospital name:");
-		String name = sc.nextLine();
-		System.out.println("Enter hospital location:");
-		String loc = sc.nextLine();
-		System.out.println("Enter contact no:");
-		String contact = sc.nextLine();
-		System.out.println("Enter bad capacity:");
-		int badCapacity = Integer.parseInt(sc.nextLine());
-		System.out.println("Enter date established[yyyy-mm-dd]:");
-		String datEstablised = sc.nextLine();
-
-		Hospital hosp = new Hospital();
-		hosp.setHName(name);
-		hosp.setLocation(loc);
-		hosp.setContact(contact);
-		hosp.setBedCapacity(badCapacity);
-		hosp.setEstablished(datEstablised);
-
-		try {
-			String resultMsg = hospital.insertHospitalDetails(hosp);
-			System.out.println(resultMsg);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		System.out.println("--------------------------Hospital Registration---------------------------");
+//		System.out.println("Enter hospital name:");
+//		String name = sc.nextLine();
+//		System.out.println("Enter hospital location:");
+//		String loc = sc.nextLine();
+//		System.out.println("Enter contact no:");
+//		String contact = sc.nextLine();
+//		System.out.println("Enter bad capacity:");
+//		int badCapacity = Integer.parseInt(sc.nextLine());
+//		System.out.println("Enter date established[yyyy-mm-dd]:");
+//		String datEstablised = sc.nextLine();
+//
+//		Hospital hosp = new Hospital();
+//		hosp.setHName(name);
+//		hosp.setLocation(loc);
+//		hosp.setContact(contact);
+//		hosp.setBedCapacity(badCapacity);
+//		hosp.setEstablished(datEstablised);
+//
+//		try {
+//			String resultMsg = hospital.insertHospitalDetails(hosp);
+//			System.out.println(resultMsg);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 		sc.close();
 	}
