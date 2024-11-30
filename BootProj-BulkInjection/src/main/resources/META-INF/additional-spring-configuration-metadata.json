@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "emp.jb.empId",
+    "type": "java.lang.String",
+    "description": "A description for 'emp.jb.empId'"
+  },
+  {
+    "name": "emp.jb.salary",
+    "type": "java.lang.String",
+    "description": "A description for 'emp.jb.salary'"
+  },
+  {
+    "name": "emp.jb.empCompany",
+    "type": "java.lang.String",
+    "description": "A description for 'emp.jb.empCompany'"
+  },
+  {
+    "name": "emp.jb.empName",
+    "type": "java.lang.String",
+    "description": "A description for 'emp.jb.empName'"
+  },
+  {
+    "name": "emp.jb.empCompany",
+    "type": "java.lang.String",
+    "description": "A description for 'emp.jb.empCompany'"
+  }
+]}

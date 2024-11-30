@@ -1,0 +1,6 @@
+cust:
+  info:
+     custNo: 50001
+     custname: Thunder
+     custAddrs: Delhi
+     billAmount: 300405
